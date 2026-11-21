@@ -3,67 +3,67 @@ const playlist = [
         title: "Industrial Zone",
         artist: "Ozzed",
         src: "https://cdn.jsdelivr.net/gh/groovecrusher/music/ozzed_crystal_caves/1_industrial_zone.mp3",
-        duration: 2:17
+        duration: "2:17"
     },
     {
         title: "Rocky Caves",
         artist: "Ozzed",
         src: "https://cdn.jsdelivr.net/gh/groovecrusher/music/ozzed_crystal_caves/2_rocky_caves.mp3",
-        duration: 2:05
+        duration: "2:05"
     },
     {
         title: "Dance of the Droids",
         artist: "Ozzed",
         src: "https://cdn.jsdelivr.net/gh/groovecrusher/music/ozzed_crystal_caves/3_dance_of_the_droids.mp3",
-        duration: 2:30
+        duration: "2:30"
     },
     {
         title: "Bog of Despair",
         artist: "Ozzed",
         src: "https://cdn.jsdelivr.net/gh/groovecrusher/music/ozzed_crystal_caves/4_bog_of_despair.mp3",
-        duration: 2:10
+        duration: "2:10"
     },
     {
         title: "Lava World",
         artist: "Ozzed",
         src: "https://cdn.jsdelivr.net/gh/groovecrusher/music/ozzed_crystal_caves/5_lava_world.mp3",
-        duration: 2:45
+        duration: "2:45"
     },
     {
         title: "Crystal Caves",
         artist: "Ozzed",
         src: "https://cdn.jsdelivr.net/gh/groovecrusher/music/ozzed_crystal_caves/6_crystal_caves.mp3",
-        duration: 2:20
+        duration: "2:20"
     },
     {
         title: "End of the Line",
         artist: "Ozzed",
         src: "https://cdn.jsdelivr.net/gh/groovecrusher/music/ozzed_crystal_caves/7_end_of_the_line.mp3",
-        duration: 2:00
+        duration: "2:00"
     },
     {
         title: "Underground City",
         artist: "Ozzed",
         src: "https://cdn.jsdelivr.net/gh/groovecrusher/music/ozzed_crystal_caves/8_underground_city.mp3",
-        duration: 2:15
+        duration: "2:15"
     },
     {
         title: "The End",
         artist: "Ozzed",
         src: "https://cdn.jsdelivr.net/gh/groovecrusher/music/ozzed_crystal_caves/9_the_end.mp3",
-        duration: 1:45
+        duration: "1:45"
     },
     {
         title: "Boss Battle",
         artist: "Ozzed",
         src: "https://cdn.jsdelivr.net/gh/groovecrusher/music/ozzed_crystal_caves/10_boss_battle.mp3",
-        duration: 2:35
+        duration: "2:35"
     },
     {
         title: "Victory",
         artist: "Ozzed",
         src: "https://cdn.jsdelivr.net/gh/groovecrusher/music/ozzed_crystal_caves/11_victory.mp3",
-        duration: 1:55
+        duration: "1:55"
     }
 ];
 
