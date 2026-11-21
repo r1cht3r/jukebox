@@ -1,0 +1,322 @@
+:root {
+    --neon-cyan: #00ffff;
+    --neon-magenta: #ff00ff;
+    --neon-green: #00ff00;
+    --neon-yellow: #ffff00;
+    --crt-bg: #0a0a2e;
+    --text-color: #e0e0e0;
+    --text-dim: #888888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: var(--crt-bg);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 10;
+}
+
+.jukebox {
+    background: #111122;
+    border: 2px solid var(--neon-cyan);
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3),
+                0 0 40px rgba(255, 0, 255, 0.1),
+                inset 0 0 20px rgba(0, 255, 255, 0.05);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.3),
+                    0 0 40px rgba(255, 0, 255, 0.1),
+                    inset 0 0 20px rgba(0, 255, 255, 0.05);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.4),
+                    0 0 60px rgba(255, 0, 255, 0.2),
+                    inset 0 0 20px rgba(0, 255, 255, 0.08);
+    }
+}
+
+.jukebox-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--neon-magenta);
+}
+
+.jukebox-header h1 {
+    color: var(--neon-cyan);
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px var(--neon-cyan),
+                 0 0 20px var(--neon-cyan),
+                 0 0 30px var(--neon-cyan);
+    margin-bottom: 10px;
+    letter-spacing: 4px;
+}
+
+.jukebox-header h2 {
+    color: var(--neon-magenta);
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px var(--neon-magenta);
+    letter-spacing: 8px;
+}
+
+.jukebox-main {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.playlist-panel h3,
+.player-panel h3 {
+    color: var(--neon-green);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px var(--neon-green);
+    letter-spacing: 3px;
+}
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.playlist::-webkit-scrollbar {
+    width: 8px;
+}
+
+.playlist::-webkit-scrollbar-track {
+    background: #0a0a2e;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background: var(--neon-cyan);
+    border-radius: 4px;
+}
+
+.track {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.track:hover {
+    background: rgba(0, 255, 255, 0.15);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.track.active {
+    background: rgba(255, 0, 255, 0.15);
+    border-color: var(--neon-magenta);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+}
+
+.track.active .track-number {
+    color: var(--neon-magenta);
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.track-number {
+    color: var(--neon-cyan);
+    font-size: 0.9rem;
+    min-width: 25px;
+}
+
+.track-info {
+    flex: 1;
+}
+
+.track-title {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.track-duration {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+}
+
+.player-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.visualizer {
+    width: 100%;
+    height: 150px;
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 6px;
+}
+
+.now-playing {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 6px;
+}
+
+.now-playing #track-title {
+    color: var(--neon-cyan);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.now-playing .artist {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.control-button {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--neon-cyan);
+    border-radius: 50%;
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--neon-cyan);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-button:hover {
+    background: rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.control-button:active {
+    transform: scale(0.95);
+}
+
+.control-button.active {
+    background: var(--neon-magenta);
+    color: var(--crt-bg);
+    border-color: var(--neon-magenta);
+}
+
+.seek-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.seek-bar {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.seek-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.time-display {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    min-width: 40px;
+    text-align: right;
+}
+
+.jukebox-footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--neon-cyan);
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+    .jukebox {
+        padding: 20px;
+    }
+    .jukebox-header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+    .jukebox-header h2 {
+        font-size: 0.9rem;
+        letter-spacing: 4px;
+    }
+    .jukebox-main {
+        grid-template-columns: 1fr;
+    }
+    .playlist {
+        max-height: 250px;
+    }
+    .visualizer {
+        height: 100px;
+    }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystal Caves Jukebox</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="jukebox">
+        <header class="jukebox-header">
+            <h1>CRYSTAL CAVES</h1>
+            <h2>Synthwave Jukebox</h2>
+        </header>
+        <main class="jukebox-main">
+            <section class="playlist-panel">
+                <h3>Track List</h3>
+                <div id="playlist" class="playlist"></div>
+            </section>
+            <section class="player-panel">
+                <h3>Now Playing</h3>
+                <canvas id="visualizer" class="visualizer"></canvas>
+                <div id="now-playing" class="now-playing">
+                    <p id="track-title">Select a track to begin</p>
+                    <p id="track-artist" class="artist">Crystal Caves Soundtrack</p>
+                </div>
+                <div class="controls">
+                    <button id="prev-btn" class="control-button" title="Previous track">⏮</button>
+                    <button id="play-pause-btn" class="control-button" title="Play/Pause">▶</button>
+                    <button id="next-btn" class="control-button" title="Next track">⏭</button>
+                    <button id="shuffle-btn" class="control-button" title="Shuffle">🎲</button>
+                    <button id="loop-btn" class="control-button" title="Loop">🔄</button>
+                </div>
+                <div class="seek-container">
+                    <input type="range" id="seek-bar" class="seek-bar" value="0" min="0" max="100" step="1">
+                    <span id="time-display">0:00</span>
+                </div>
+            </section>
+        </main>
+        <footer class="jukebox-footer">
+            <p>Made with Web Audio API and HTML5</p>
+        </footer>
+    </div>
+    <audio id="audio" crossorigin="anonymous"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
